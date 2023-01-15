@@ -1,0 +1,27 @@
+<h1>Listado de héroes</h1>
+<mat-divider></mat-divider>
+<br/>
+
+<div fxLayout="row wrap" 
+     fxLayout.xs="column" 
+     fxLayoutAlign="center"
+     fxLayoutGap="20px"
+     *ngIf="listaHeroes.length>0">
+
+    <div fxFlex="20" fxFlex.lg="15" fxFlex.sm="30" *ngFor="let lh of listaHeroes"> 
+    <!-- 
+        - FlexLayoutModule
+        - Va a tener el 20% del row. 
+        - Por cada heroe, que ocupe el 20% 
+        - En función de la pantalla, se aplicará un tamaño 
+        - fxLayout.xs="column" es que si la pantalla es muy pequeña, ya no hay row, es una columna
+    -->
+
+        <app-heroe-tarjeta [lh]="lh"></app-heroe-tarjeta>
+    </div>
+</div>
+
+<!--
+    - Se manda cada objeto del array al componente
+    - Mandas lh que es cada héroe (objeto) del array
+-->

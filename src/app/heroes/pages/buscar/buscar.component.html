@@ -1,0 +1,45 @@
+
+<div fxLayout="column">
+    <div>
+        <h1>Buscador de héroes</h1>
+        <mat-divider></mat-divider>
+    </div>
+    <div fxLayout="column">
+        <h3>Buscador</h3>
+        <mat-form-field appearance="fill">
+            <mat-label>Introduce un héroe</mat-label>
+            <input type="text"
+                   placeholder="Héroe"
+                   aria-label="Héroe"
+                   matInput
+                   [(ngModel)]="termino"
+                   [matAutocomplete]="auto"
+                   (input)="buscando()">
+            <mat-autocomplete autoActiveFirstOption 
+                              #auto="matAutocomplete"
+                              (optionSelected)="opcionSeleccionada($event)">
+                <!--Lista de héroes desplegable-->
+                <mat-option *ngFor="let lh of listaHeroes" [value]="lh"> <!--1-->
+                    {{lh.superhero}}
+                </mat-option> 
+                <mat-option value="" *ngIf="listaHeroes.length===0 && termino.trim().length>0"> <!--2-->
+                    No se encontró nada con el término {{termino}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </div>
+</div>
+
+<div><pre>{{heroeElegido |json}}</pre></div>
+
+<div *ngIf="heroeElegido">
+    <app-heroe-tarjeta [lh]="heroeElegido" ></app-heroe-tarjeta>
+</div>
+
+<!--
+    - [(ngModel)]="termino" -> Toma el valor introducido en el input y lo guarda en la variable
+    - (input) -> Obtiene el valor de la caja de texto
+
+1-> Al componente le estás pasando el valor del atributo 'lh' de tu componente
+2-> Al componente le estás pasando el literal ' ', un string vacío.
+-->

@@ -1,5 +1,7 @@
 # HeroesApp
 
+Aplicación CRUD con angular-material, routing, autocomplete, one way binding, two way binding
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
 
 ## Development server

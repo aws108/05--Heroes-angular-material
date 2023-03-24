@@ -15,7 +15,7 @@ export class HeroeTarjetaComponent implements OnInit{
   @Input() lh!: IHeroe; //Es del tipo la interficie. El ! es un trust in me
 
   ngOnInit(): void {
-    //console.log(this.lh);
+    console.log('@Input() lh!', this.lh);
   }
   
 }

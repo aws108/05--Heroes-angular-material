@@ -29,8 +29,12 @@
         <button mat-icon-button (click)="lateral.toggle()"> <!-- 2 -->
             <span class="material-icons">menu</span>
         </button>
+
         <span class="espacio"></span> <!--Se ha usado flex. Ver styles.css-->
-        <button mat-button (click)="lateral.toggle()">
+        
+        <span> {{ username.usuario }} </span>
+        
+        <button mat-button (click)="logout()">
             Cerrar sesión
         </button>
             

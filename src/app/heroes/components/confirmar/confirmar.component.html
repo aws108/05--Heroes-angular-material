@@ -1,0 +1,13 @@
+<div class="ventana">
+    <h1>¿Estás seguro?</h1>
+    <hr>
+    <p>Estás a punto de eliminar a {{data.superhero}}
+        <br>
+        ¿En serio lo vas a borrar?
+    </p>
+
+    <div>
+        <button mat-button (click)="borrar()" color="warn">Sí, pesao</button>
+        <button mat-button (click)="cerrar()">Cancelar</button>
+    </div>
+</div>

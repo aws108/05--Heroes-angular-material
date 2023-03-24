@@ -25,12 +25,16 @@ export class HeroesService {
     return this.http.get<IHeroe[]>(`${this.endPoint}/heroes?q=${termino}&_limit=6`)
   }
 
-  agregarHeroe(heroe: IHeroe): Observable<IHeroe>{
+  crearHeroe(heroe: IHeroe): Observable<IHeroe>{
     return this.http.post<IHeroe>(`${this.endPoint}/heroes`, heroe); //3
   }
 
   actualizarHeroe(heroe: IHeroe): Observable<IHeroe>{
     return this.http.put<IHeroe>(`${this.endPoint}/heroes/${heroe.id}`, heroe); //3
+  }
+
+  borrarHeroe(id: string): Observable<any>{ // dejamos any porque no devolverá nada
+    return this.http.delete<any>(`${this.endPoint}/heroes/${id}`);
   }
 
 
@@ -42,3 +46,7 @@ export class HeroesService {
 //2-> Indica que es un Observable
 //3-> El backend devolverá un Observable con el nuevo héroe. 
 // El post va acompañado del tipo porque se lo estás enviando por parámetro de entrada
+/*
+(`${this.endPoint}/heroes/${heroe.id}`, heroe)
+----- URL a la que se le hace petición, contenido body ----
+*/
